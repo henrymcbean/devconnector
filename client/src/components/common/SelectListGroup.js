@@ -2,7 +2,7 @@ import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
-const SelectListGroupGroup = ({
+const SelectListGroup = ({
   name,
   value,
   error,
@@ -33,7 +33,7 @@ const SelectListGroupGroup = ({
   );
 };
 
-SelectListGroupGroup.propTypes = {
+SelectListGroup.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   info: PropTypes.string,
@@ -42,4 +42,4 @@ SelectListGroupGroup.propTypes = {
   options: PropTypes.array.isRequired
 }
 
-export default SelectListGroupGroup;
+export default SelectListGroup;

@@ -28,6 +28,7 @@ class Profile extends Component {
 
     if (profile === null || loading) {
       profileContent = <Spinner />;
+      <h2>Loading...</h2>
     } else {
       profileContent = (
         <div>

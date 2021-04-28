@@ -15,6 +15,7 @@ class CreateProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      displaySocialInputs: false,
       handle: '',
       company: '',
       website: '',
@@ -61,13 +62,12 @@ class CreateProfile extends Component {
   }
 
   onChange = e => {
-    e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
   };
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
-      this.setState({errors: nextProps.errors});
+      this.setState({ errors: nextProps.errors });
     }
   }
 
@@ -84,6 +84,7 @@ class CreateProfile extends Component {
             value={this.state.twitter}
             onChange={this.onChange}
             icon="fab fa-twitter"
+            error={errors.twitter}
           />
           <InputGroup
             placeholder="Facebook Page URL"
@@ -91,6 +92,7 @@ class CreateProfile extends Component {
             value={this.state.facebook}
             onChange={this.onChange}
             icon="fab fa-facebook"
+            error={errors.facebook}
           />
           <InputGroup
             placeholder="Linkedin Profile URL"
@@ -98,6 +100,7 @@ class CreateProfile extends Component {
             value={this.state.linkedin}
             onChange={this.onChange}
             icon="fab fa-linkedin"
+            error={errors.linkedin}
           />
           <InputGroup
             placeholder="YouTube Channel URL"
@@ -105,6 +108,7 @@ class CreateProfile extends Component {
             value={this.state.youtube}
             onChange={this.onChange}
             icon="fab fa-youtube"
+            error={errors.youtube}
           />
           <InputGroup
             placeholder="Instagram Page URL"
@@ -112,6 +116,7 @@ class CreateProfile extends Component {
             value={this.state.instagram}
             onChange={this.onChange}
             icon="fab fa-instagram"
+            error={errors.instagram}
           />
         </div>
       );
@@ -126,7 +131,7 @@ class CreateProfile extends Component {
       { label: "Manager", value: "Manager" },
       { label: "Student or Learning", value: "Student or Learning" },
       { label: "Instructor", value: "Instructor" },
-      { label: "Intern", value: "Instructor" },
+      { label: "Intern", value: "Intern" },
       { label: "Other", value: "Other" }
     ];
 
@@ -220,7 +225,7 @@ class CreateProfile extends Component {
                   <span class="text-muted">Optional</span>
                 </div>
                 {socialInputs}
-                <input type="submit" value="Submit" className="btn btn-info btn-block" mt-4 />
+                <input type="submit" value="Submit" className="btn btn-info btn-block mt-4" />
               </form>
             </div>
           </div>
