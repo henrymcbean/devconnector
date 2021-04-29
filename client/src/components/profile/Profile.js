@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import Spinner from "../common/spinner.gif";
 import PropTypes from "prop-types";
 import ProfileHeader from "./ProfileHeader";
 import ProfileAbout from "./ProfileAbout";
 import ProfileCreds from "./ProfileCreds";
 import ProfileGitbubs from "./ProfileGithub";
-import Spinner from "../common/spinner.gif";
 import { getProfileByHandle } from "../../actions/profilesActions";
+import ErrorBondary from '../not-found/ErrorBoundary';
 
 class Profile extends Component {
   componentDidMount() {
@@ -27,7 +28,7 @@ class Profile extends Component {
     let profileContent;
 
     if (profile === null || loading) {
-      profileContent = <Spinner />;
+      profileContent = <ErrorBondary><Spinner /></ErrorBondary>;
       <h2>Loading...</h2>
     } else {
       profileContent = (
